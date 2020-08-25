@@ -8,13 +8,11 @@ import com.BPSSberbank.serviceDesk.queues.SimpleQueueImpl;
 public class Consumer implements Runnable {
 
     private SimpleQueueImpl<String> queue;
-    private String[] words;
     private Thread thread;
     private Integer timeSleep;
 
-    public Consumer(SimpleQueueImpl<String> queue, String[] words, Integer timeSleep) {
+    public Consumer(SimpleQueueImpl<String> queue, Integer timeSleep) {
         this.queue = queue;
-        this.words = words;
         this.timeSleep = timeSleep;
         thread = new Thread(this);
         thread.start();
