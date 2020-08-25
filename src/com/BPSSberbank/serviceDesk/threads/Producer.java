@@ -1,18 +1,18 @@
 package com.BPSSberbank.serviceDesk.threads;
 
-import com.BPSSberbank.serviceDesk.queues.SimpleQueueImpl;
+import com.BPSSberbank.serviceDesk.queues.Queue;
 
 /**
  * @author Alexey Druzik on 25.08.2020
  */
 public class Producer implements Runnable  {
 
-    private SimpleQueueImpl<String> queue;
+    private Queue<String> queue;
     private String[] words;
     private Thread thread;
     private Integer timeSleep;
 
-    public Producer(SimpleQueueImpl<String> queue, String[] words, Integer timeSleep) {
+    public Producer(Queue<String> queue, String[] words, Integer timeSleep) {
         this.queue = queue;
         this.words = words;
         this.timeSleep = timeSleep;

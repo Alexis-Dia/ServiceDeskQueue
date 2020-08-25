@@ -9,5 +9,8 @@ public interface Queue<T> {
     T remove();         // извлечение элемента из начала очереди
 
     boolean isEmpty();
+
+    int size();
+
 }
 
