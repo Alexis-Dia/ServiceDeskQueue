@@ -12,8 +12,8 @@ import com.BPSSberbank.serviceDesk.threads.Producer;
  */
 public class Main {
 
-    private final static String[] words = new String[] {"Саша", "Паша", "Нина", "Леша", "Игорь", "Максим", "Ольга"};
-    private final static String[] additionWords = new String[] {"Никон", "Афанасий", "Серафим"};
+    private final static String[] WORDS = new String[] {"Саша", "Паша", "Нина", "Леша", "Игорь", "Максим", "Ольга"};
+    private final static String[] ADDITION_WORDS = new String[] {"Никон", "Афанасий", "Серафим"};
     private static final int TIME_SLEEP_FOR_FIRST_PRODUCER = 5000;
     private static final int TIME_SLEEP_FOR_SECOND_PRODUCER = 6000;
     private static final int TIME_SLEEP_FOR_FIRST_CONSUMER = 8000;
@@ -22,8 +22,8 @@ public class Main {
 
         Queue<String> queue = new SimpleQueueImpl();
 
-        new Producer(queue, words, TIME_SLEEP_FOR_FIRST_PRODUCER);
-        new Producer(queue, additionWords, TIME_SLEEP_FOR_SECOND_PRODUCER);
+        new Producer(queue, WORDS, TIME_SLEEP_FOR_FIRST_PRODUCER);
+        new Producer(queue, ADDITION_WORDS, TIME_SLEEP_FOR_SECOND_PRODUCER);
         new Consumer(queue, TIME_SLEEP_FOR_FIRST_CONSUMER);
 
     }
