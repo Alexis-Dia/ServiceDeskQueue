@@ -17,6 +17,7 @@ public class Main {
     private static final int TIME_SLEEP_FOR_FIRST_CONSUMER = 8000;
     private static final String[] WORDS = new String[] {"Саша", "Паша", "Нина", "Леша", "Игорь", "Максим", "Ольга"};
     private static final String[] ADDITION_WORDS = new String[] {"Никон", "Афанасий", "Серафим"};
+    public static final int TIME_SLEEP_FOR_SECOND_CONSUMER = 7500;
 
     public static void main(String[] args) {
 
@@ -25,6 +26,7 @@ public class Main {
         new Producer(queue, WORDS, TIME_SLEEP_FOR_FIRST_PRODUCER);
         new Producer(queue, ADDITION_WORDS, TIME_SLEEP_FOR_SECOND_PRODUCER);
         new Consumer(queue, TIME_SLEEP_FOR_FIRST_CONSUMER);
+        new Consumer(queue, TIME_SLEEP_FOR_SECOND_CONSUMER);
 
     }
 
