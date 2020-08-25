@@ -20,18 +20,16 @@ public class Consumer implements Runnable {
 
     @Override
     public void run() {
-        //synchronized (queue) {
-            while (!Thread.interrupted()) {
-                try {
-                    Thread.sleep(timeSleep);
-                    if (!queue.isEmpty()) {
-                        String element = queue.remove();
-                        System.out.println("consumer: обработал из очереди " + element + ", число элементов в очереди: " + queue.size());
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+        while (!Thread.interrupted()) {
+            try {
+                Thread.sleep(timeSleep);
+                if (!queue.isEmpty()) {
+                    String element = queue.remove();
+                    System.out.println("consumer: обработал из очереди " + element + ", число элементов в очереди: " + queue.size());
                 }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-        //}
+        }
     }
 }

@@ -23,17 +23,15 @@ public class Producer implements Runnable  {
 
     @Override
     public void run() {
-        //synchronized (queue) {
-            for (int i = 0; i < words.length && !Thread.interrupted();) {
-                try {
-                    Thread.sleep(timeSleep);
-                    queue.add(words[i]);
-                    System.out.println("producer: записал в очередь " + words[i] + ", число элементов в очереди: " + queue.size());
-                    i++;
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+        for (int i = 0; i < words.length && !Thread.interrupted(); ) {
+            try {
+                Thread.sleep(timeSleep);
+                queue.add(words[i]);
+                System.out.println("producer: записал в очередь " + words[i] + ", число элементов в очереди: " + queue.size());
+                i++;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-        //}
+        }
     }
 }
