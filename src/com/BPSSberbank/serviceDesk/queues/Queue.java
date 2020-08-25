@@ -8,6 +8,8 @@ public interface Queue<T> {
 
     T remove();         // извлечение элемента из начала очереди
 
+    T getByIndex(int index);
+
     boolean isEmpty();
 
     int size();

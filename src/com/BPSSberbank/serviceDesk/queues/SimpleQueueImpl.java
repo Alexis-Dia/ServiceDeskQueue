@@ -20,6 +20,11 @@ public class SimpleQueueImpl<T> implements Queue<T> {
     }
 
     @Override
+    public T getByIndex(int index) {
+        return list.get(index);
+    }
+
+    @Override
     public boolean isEmpty() {
         return list.isEmpty();
     }

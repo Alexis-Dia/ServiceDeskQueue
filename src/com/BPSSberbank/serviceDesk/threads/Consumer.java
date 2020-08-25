@@ -7,6 +7,7 @@ import com.BPSSberbank.serviceDesk.queues.Queue;
  */
 public class Consumer implements Runnable {
 
+    private int queueByIndex = 0;
     private Queue<String> queue;
     private Thread thread;
     private Integer timeSleep;
@@ -24,9 +25,10 @@ public class Consumer implements Runnable {
             while (!Thread.interrupted()) {
                 try {
                     Thread.sleep(timeSleep);
-                    if (!queue.isEmpty()) {
-                        String element = queue.remove();
-                        System.out.println("consumer: обработал из очереди " + element + ", число элементов в очереди: " + queue.size());
+                    if (!queue.isEmpty() && queueByIndex != queue.size()) {
+                        String element = queue.getByIndex(queueByIndex);
+                        System.out.println("consumer_" + thread.getId() + ": обработал из очереди " + element + ", число элементов в очереди: " + queue.size());
+                        queueByIndex++;
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();

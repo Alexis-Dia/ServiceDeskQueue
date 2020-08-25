@@ -28,7 +28,7 @@ public class Producer implements Runnable  {
                 try {
                     Thread.sleep(timeSleep);
                     queue.add(words[i]);
-                    System.out.println("producer: записал в очередь " + words[i] + ", число элементов в очереди: " + queue.size());
+                    System.out.println("producer_" + thread.getId() + ": записал в очередь " + words[i] + ", число элементов в очереди: " + queue.size());
                     i++;
                 } catch (InterruptedException e) {
                     e.printStackTrace();
